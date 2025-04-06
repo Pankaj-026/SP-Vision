@@ -15,6 +15,7 @@ const Login = () => {
     const msg = checkValidation(email.current.value, password.current.value);
     setErrorMessage(msg);
   };
+  
 
   return (
     <div className="h-screen w-screen bg-gradient-to-b from-gray-900 via-purple-900 to-black text-white">

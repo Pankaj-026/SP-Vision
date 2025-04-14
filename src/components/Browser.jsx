@@ -11,8 +11,8 @@ const Browse = () => {
     <>
       <Header />
       <div className="bg-[#141414] h-[10vh] overflow-hidden"></div>
-      <MainContainer/>
-      <SecondaryContainer/>
+      <MainContainer />
+      <SecondaryContainer />
       <Footer />
     </>
   );

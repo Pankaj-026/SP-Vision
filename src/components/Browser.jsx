@@ -10,7 +10,7 @@ const Browse = () => {
   return (
     <>
       <Header />
-      <div className="bg-[#141414] h-[10vh] overflow-hidden"></div>
+      <div className="bg-[#141414]  overflow-hidden"></div>
       <MainContainer />
       <SecondaryContainer />
       <Footer />

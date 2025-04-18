@@ -13,9 +13,8 @@ const useNowPlayingMovies = () => {
       options
     );
     const data = await response.json();
-    dispatch(addNowPlayingMoives({
-      nowPlayingMovies: data.results,
-    }));
+    dispatch(addNowPlayingMoives( data.results,
+    ));
   };
 
   useEffect(() => {

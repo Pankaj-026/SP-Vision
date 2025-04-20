@@ -4,17 +4,27 @@ import useNowPlayingMovies from "../hooks/useNowPlayingMovies";
 import MainContainer from "./MainContainer";
 import SecondaryContainer from "./SecondaryContainer";
 import useTrendingMovies from "../hooks/useTrendingMovies";
+import { useSelector } from "react-redux";
+import GptSearch from "./GptSearch";
 
 const Browse = () => {
+  const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
+
   useNowPlayingMovies();
   useTrendingMovies();
 
   return (
     <>
       <Header />
-      <div className="bg-[#141414]  overflow-hidden"></div>
-      <MainContainer />
-      <SecondaryContainer />
+
+      {showGptSearch ? (
+        <GptSearch/>
+      ) : (
+        <>
+          <MainContainer />
+          <SecondaryContainer />
+        </>
+      )}
       <Footer />
     </>
   );

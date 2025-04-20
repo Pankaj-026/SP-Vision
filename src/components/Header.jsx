@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../utils/firebase";
 import { Menu, X } from "lucide-react";
+import { toggleGptSearchView } from "../utils/gptSlice";
 
 const Header = () => {
   const user = useSelector((store) => store.user);
@@ -39,6 +40,10 @@ const Header = () => {
     return () => unsubscribe();
   }, []);
 
+  const handleSpBot = () => {
+    dispatch(toggleGptSearchView()); 
+  };
+
   return (
     <header className="text-white bg-gradient-to-b from-black to-transparent fixed top-0 left-0 w-full z-50">
       <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
@@ -52,26 +57,6 @@ const Header = () => {
         {user && (
           <>
             <nav className="hidden md:flex items-center space-x-6">
-              <a
-                href="#"
-                className="hover:text-amber-400">
-                Home
-              </a>
-              <a
-                href="#"
-                className="hover:text-amber-400">
-                Movies
-              </a>
-              <a
-                href="#"
-                className="hover:text-amber-400">
-                Series
-              </a>
-              <input
-                type="text"
-                placeholder="Search..."
-                className="bg-gray-800 text-white px-3 py-1 rounded-lg focus:outline-none"
-              />
               {user && (
                 <div className="flex items-center space-x-2">
                   <img
@@ -82,6 +67,11 @@ const Header = () => {
                   <span className="hidden lg:inline-block">
                     {user.displayName}
                   </span>
+                  <button
+                    onClick={handleSpBot}
+                    className="bg-amber-500 px-3 py-1 rounded text-white ml-2 hover:bg-amber-600 cursor-pointer">
+                    SP BOT
+                  </button>
                   <button
                     onClick={handleSignOut}
                     className="bg-amber-500 px-3 py-1 rounded text-white ml-2 hover:bg-amber-600 cursor-pointer">
